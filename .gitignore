@@ -1,0 +1,10 @@
+.idea
+static/uploadfile
+ferry
+temp/
+!temp
+vendor
+tmp/
+runtime/
+config/settings.dev.yml
+logs

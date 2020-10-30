@@ -1,0 +1,1301 @@
+definitions:
+  ad.Ad:
+    properties:
+      adid:
+        description: 广告id
+        type: integer
+      bas_monitor_type:
+        description: BAS 监测方式
+        type: integer
+      ctime:
+        type: string
+      formatid:
+        description: 广告形式
+        type: integer
+      is_promote:
+        description: 是否推广广告
+        type: integer
+      mgtv_var:
+        description: MGTV 参数配置
+        type: string
+      monitor_type:
+        description: 监测方式
+        type: integer
+      mtime:
+        type: string
+      priority:
+        description: 优先级
+        type: integer
+      re_conf:
+        description: 配置
+        type: string
+      status:
+        description: 状态
+        type: integer
+      sup_status:
+        description: 辅助渠道启停状态
+        type: integer
+      sup_switch:
+        description: 矩阵-光芒广告状态
+        type: integer
+      time_end:
+        description: 广告结束时间
+        type: string
+      time_start:
+        description: 广告开始时间
+        type: string
+      title:
+        description: 广告标题
+        type: string
+      userId:
+        description: 创建用户
+        type: integer
+    type: object
+  app.Response:
+    properties:
+      code:
+        description: 代码
+        example: 200
+        type: integer
+      data:
+        description: 数据集
+        type: object
+      msg:
+        description: 消息
+        type: string
+    type: object
+  system.Dept:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/system.Dept'
+        type: array
+      create_time:
+        type: string
+      createBy:
+        type: string
+      deptId:
+        description: 部门编码
+        type: integer
+      deptName:
+        description: 部门名称
+        type: string
+      deptPath:
+        type: string
+      email:
+        description: 邮箱
+        type: string
+      leader:
+        description: 负责人
+        type: integer
+      params:
+        type: string
+      parentId:
+        description: 上级部门
+        type: integer
+      phone:
+        description: 手机
+        type: string
+      sort:
+        description: 排序
+        type: integer
+      status:
+        description: 状态
+        type: string
+      update_time:
+        type: string
+      updateBy:
+        type: string
+    type: object
+  system.Login:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  system.LoginLog:
+    properties:
+      browser:
+        description: 浏览器
+        type: string
+      create_time:
+        type: string
+      createBy:
+        description: 创建人
+        type: string
+      infoId:
+        description: 主键
+        type: integer
+      ipaddr:
+        description: ip地址
+        type: string
+      loginLocation:
+        description: 归属地
+        type: string
+      loginTime:
+        description: 登录时间
+        type: string
+      msg:
+        type: string
+      os:
+        description: 系统
+        type: string
+      params:
+        type: string
+      platform:
+        description: 固件
+        type: string
+      remark:
+        description: 备注
+        type: string
+      status:
+        description: 状态
+        type: string
+      update_time:
+        type: string
+      updateBy:
+        description: 更新者
+        type: string
+      username:
+        description: 用户名
+        type: string
+    type: object
+  system.Menu:
+    properties:
+      action:
+        type: string
+      breadcrumb:
+        type: string
+      children:
+        items:
+          $ref: '#/definitions/system.Menu'
+        type: array
+      component:
+        type: string
+      create_time:
+        type: string
+      createBy:
+        type: string
+      icon:
+        type: string
+      is_select:
+        type: boolean
+      isFrame:
+        type: string
+      menuId:
+        type: integer
+      menuName:
+        type: string
+      menuType:
+        type: string
+      noCache:
+        type: boolean
+      params:
+        type: string
+      parentId:
+        type: integer
+      path:
+        type: string
+      paths:
+        type: string
+      permission:
+        type: string
+      roleId:
+        type: integer
+      sort:
+        type: integer
+      title:
+        type: string
+      update_time:
+        type: string
+      updateBy:
+        type: string
+      visible:
+        type: string
+    type: object
+  system.Post:
+    properties:
+      create_time:
+        type: string
+      createBy:
+        type: string
+      params:
+        type: string
+      postCode:
+        description: 岗位代码
+        type: string
+      postId:
+        description: 岗位编号
+        type: integer
+      postName:
+        description: 岗位名称
+        type: string
+      remark:
+        description: 描述
+        type: string
+      sort:
+        description: 岗位排序
+        type: integer
+      status:
+        description: 状态
+        type: string
+      update_time:
+        type: string
+      updateBy:
+        type: string
+    type: object
+  system.SysRole:
+    properties:
+      describe:
+        description: |-
+          RoleKey  string `json:"roleKey" gorm:"type:varchar(128);"`        //角色代码
+          RoleSort int    `json:"roleSort" gorm:"type:int(4);"`             //角色排序
+          Flag     string `json:"flag" gorm:"type:varchar(128);"`           //
+          CreateBy string `json:"createBy" gorm:"type:varchar(128);"`       //
+          UpdateBy string `json:"updateBy" gorm:"type:varchar(128);"`       //
+        type: string
+      id:
+        description: 角色编码
+        type: integer
+      status:
+        type: string
+      title:
+        description: 角色名称
+        type: string
+    type: object
+  system.SysUser:
+    properties:
+      fullname:
+        description: 昵称
+        type: string
+      id:
+        description: 编码
+        type: integer
+      password:
+        description: 密码
+        type: string
+      role_id:
+        description: Phone    string `gorm:"type:varchar(11)" json:"phone"`     // 手机号
+        type: integer
+      salt:
+        description: 盐
+        type: string
+      status:
+        description: |-
+          Avatar   string `gorm:"type:varchar(255)" json:"avatar"`   //头像
+          Sex      string `gorm:"type:varchar(255)" json:"sex"`      //性别
+          Email    string `gorm:"type:varchar(128)" json:"email"`    //邮箱
+          DeptId   int    `gorm:"type:int(11)" json:"deptId"`        //部门编码
+          PostId   int    `gorm:"type:int(11)" json:"postId"`        //职位编码
+          CreateBy string `gorm:"type:varchar(128)" json:"createBy"` //
+          UpdateBy string `gorm:"type:varchar(128)" json:"updateBy"` //
+          Remark   string `gorm:"type:varchar(255)" json:"remark"`   //备注
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+  license: {}
+paths:
+  /api/v1/ad:
+    post:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/ad.Ad'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 创建广告
+      tags:
+      - 广告
+    put:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: adid
+        in: path
+        name: adid
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/ad.Ad'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 修改广告
+      tags:
+      - 广告
+  /api/v1/ad/{adid}:
+    get:
+      description: 获取广告
+      parameters:
+      - description: adid
+        in: path
+        name: adid
+        type: string
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 获取指定广告数据
+      tags:
+      - 广告
+  /api/v1/adList:
+    get:
+      description: 分页列表
+      parameters:
+      - description: adid
+        in: query
+        name: adid
+        type: string
+      - description: title
+        in: query
+        name: title
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: string
+      - description: 页条数
+        in: query
+        name: pageSize
+        type: integer
+      - description: 页码
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 分页广告列表数据
+      tags:
+      - 广告
+  /api/v1/dept:
+    post:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.Dept'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 添加部门
+      tags:
+      - 部门
+    put:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.Dept'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 修改部门
+      tags:
+      - 部门
+  /api/v1/dept/{deptId}:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: deptId
+        in: path
+        name: deptId
+        type: string
+      - description: position
+        in: query
+        name: position
+        type: string
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 部门列表数据
+      tags:
+      - 部门
+  /api/v1/dept/{id}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 删除部门
+      tags:
+      - 部门
+  /api/v1/deptList:
+    get:
+      description: 分页列表
+      parameters:
+      - description: name
+        in: query
+        name: name
+        type: string
+      - description: id
+        in: query
+        name: id
+        type: string
+      - description: position
+        in: query
+        name: position
+        type: string
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 分页部门列表数据
+      tags:
+      - 部门
+  /api/v1/loginlog:
+    post:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.LoginLog'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 添加登录日志
+      tags:
+      - 登录日志
+    put:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.LoginLog'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 修改登录日志
+      tags:
+      - 登录日志
+  /api/v1/loginlog/{infoId}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: 以逗号（,）分割的infoId
+        in: path
+        name: infoId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 批量删除登录日志
+      tags:
+      - 登录日志
+    get:
+      description: 获取JSON
+      parameters:
+      - description: infoId
+        in: path
+        name: infoId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 通过编码获取登录日志
+      tags:
+      - 登录日志
+  /api/v1/loginloglist:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: status
+        in: query
+        name: status
+        type: string
+      - description: dictCode
+        in: query
+        name: dictCode
+        type: string
+      - description: dictType
+        in: query
+        name: dictType
+        type: string
+      - description: 页条数
+        in: query
+        name: pageSize
+        type: integer
+      - description: 页码
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 登录日志列表
+      tags:
+      - 登录日志
+  /api/v1/menu:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: menuName
+        in: query
+        name: menuName
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Menu列表数据
+      tags:
+      - 菜单
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 获取JSON
+      parameters:
+      - description: menuName
+        in: formData
+        name: menuName
+        required: true
+        type: string
+      - description: Path
+        in: formData
+        name: Path
+        type: string
+      - description: Action
+        in: formData
+        name: Action
+        required: true
+        type: string
+      - description: Permission
+        in: formData
+        name: Permission
+        required: true
+        type: string
+      - description: ParentId
+        in: formData
+        name: ParentId
+        required: true
+        type: string
+      - description: IsDel
+        in: formData
+        name: IsDel
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 创建菜单
+      tags:
+      - 菜单
+  /api/v1/menu/{id}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 删除菜单
+      tags:
+      - 菜单
+    put:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 获取JSON
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.Menu'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "修改失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 修改菜单
+      tags:
+      - 菜单
+  /api/v1/menuTreeselect:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 获取JSON
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 获取菜单树
+      tags:
+      - 菜单
+  /api/v1/menuids/{id}:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 获取角色对应的菜单id数组
+      tags:
+      - 菜单
+  /api/v1/menulist:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: menuName
+        in: query
+        name: menuName
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: Menu列表数据
+      tags:
+      - 菜单
+  /api/v1/menurole:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 根据角色名称获取菜单列表数据（左菜单使用）
+      tags:
+      - 菜单
+  /api/v1/post:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: postName
+        in: query
+        name: postName
+        type: string
+      - description: postCode
+        in: query
+        name: postCode
+        type: string
+      - description: postId
+        in: query
+        name: postId
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: string
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 职位列表数据
+      tags:
+      - 职位
+    post:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.Post'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 添加职位
+      tags:
+      - 职位
+  /api/v1/post/:
+    put:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.Dept'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 修改职位
+      tags:
+      - 职位
+  /api/v1/post/{postId}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 删除职位
+      tags:
+      - 职位
+    get:
+      description: 获取JSON
+      parameters:
+      - description: postId
+        in: path
+        name: postId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 获取字典数据
+      tags:
+      - 字典数据
+  /api/v1/role:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: roleId
+        in: path
+        name: roleId
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 获取Role数据
+      tags:
+      - 角色/Role
+    post:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysRole'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      summary: 创建角色
+      tags:
+      - 角色/Role
+    put:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysRole'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "修改失败"}'
+          schema:
+            type: string
+      summary: 修改用户角色
+      tags:
+      - 角色/Role
+  /api/v1/role/{roleId}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: roleId
+        in: path
+        name: roleId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 删除用户角色
+      tags:
+      - 角色/Role
+  /api/v1/rolelist:
+    get:
+      description: Get JSON
+      parameters:
+      - description: roleName
+        in: query
+        name: roleName
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: string
+      - description: roleKey
+        in: query
+        name: roleKey
+        type: string
+      - description: 页条数
+        in: query
+        name: pageSize
+        type: integer
+      - description: 页码
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 角色列表数据
+      tags:
+      - 角色/Role
+  /api/v1/rolemenu:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: UserId
+        in: query
+        name: UserId
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: RoleMenu列表数据
+      tags:
+      - 角色菜单
+  /api/v1/rolemenu/{id}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: menu_id
+        in: query
+        name: menu_id
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 删除用户菜单数据
+      tags:
+      - 角色菜单
+  /api/v1/sysUser:
+    get:
+      description: 获取JSON
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 获取用户角色和职位
+      tags:
+      - 用户
+    post:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: 用户数据
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysUser'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      summary: 创建用户
+      tags:
+      - 用户
+  /api/v1/sysUser/{userId}:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: 用户编码
+        in: path
+        name: userId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 获取用户
+      tags:
+      - 用户
+  /api/v1/sysUserList:
+    get:
+      description: 获取JSON
+      parameters:
+      - description: username
+        in: query
+        name: username
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "抱歉未找到相关信息"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 列表数据
+      tags:
+      - 用户
+  /api/v1/sysuser/{userId}:
+    delete:
+      description: 删除数据
+      parameters:
+      - description: userId
+        in: path
+        name: userId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "删除失败"}'
+          schema:
+            type: string
+      summary: 删除用户数据
+      tags:
+      - 用户
+    put:
+      consumes:
+      - application/json
+      description: 获取JSON
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/system.SysUser'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "修改失败"}'
+          schema:
+            type: string
+      summary: 修改用户数据
+      tags:
+      - 用户
+  /api/v1/user/profile:
+    get:
+      description: 获取JSON
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/app.Response'
+      security:
+      - "": []
+      summary: 获取当前登录用户
+      tags:
+      - 个人中心
+  /api/v1/user/profileAvatar:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 获取JSON
+      parameters:
+      - description: file
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "200":
+          description: '{"code": -1, "message": "添加失败"}'
+          schema:
+            type: string
+      summary: 修改头像
+      tags:
+      - 用户
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: 获取token
+      parameters:
+      - description: Add account
+        in: body
+        name: username
+        required: true
+        schema:
+          $ref: '#/definitions/system.Login'
+      responses:
+        "200":
+          description: '{"code": 200, "expire": "2019-08-07T12:45:48+08:00", "token": ".eyJleHAiOjE1NjUxNTMxNDgsImlkIjoiYWRtaW4iLCJvcmlnX2lhdCI6MTU2NTE0OTU0OH0.-zvzHvbg0A" }'
+          schema:
+            type: string
+      summary: 登陆
+  /logout:
+    post:
+      consumes:
+      - application/json
+      description: 获取token
+      responses:
+        "200":
+          description: '{"code": 200, "msg": "成功退出系统" }'
+          schema:
+            type: string
+      security:
+      - "": []
+      summary: 退出登录
+  /sd/cpu:
+    get:
+      consumes:
+      - text/html
+      description: CPU 使用量 DiskCheck checks the disk usage.
+      produces:
+      - text/html
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: CPU 使用量
+  /sd/disk:
+    get:
+      consumes:
+      - text/html
+      description: 服务器硬盘使用量 DiskCheck checks the disk usage.
+      produces:
+      - text/html
+      responses:
+        "200":
+          description: 'OK - Free space: 16321MB (15GB) / 51200MB (50GB) | Used: 31%'
+          schema:
+            type: string
+        "429":
+          description: WARNING
+          schema:
+            type: string
+        "500":
+          description: CRITICAL
+          schema:
+            type: string
+      summary: 服务器硬盘使用量
+  /sd/health:
+    get:
+      consumes:
+      - text/html
+      description: 健康状况
+      produces:
+      - text/html
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 健康状况 HealthCheck shows OK as the ping-pong result.
+  /sd/os:
+    get:
+      consumes:
+      - text/html
+      description: Os
+      produces:
+      - text/html
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: OS
+  /sd/ram:
+    get:
+      consumes:
+      - text/html
+      description: 内存使用量 RAMCheck checks the disk usage.
+      produces:
+      - text/html
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 内存使用量
+swagger: "2.0"
